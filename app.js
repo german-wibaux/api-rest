@@ -13,7 +13,7 @@ const port = process.env.PORT || 3000
 //var db = mongoose.connect("mongodb://localhost/ProductsDb");
 
 
-mongoose.connect('mongodb://localhost:27017/properties', (err, res) => {
+mongoose.connect('mongodb://localhost:27017/properties', { useMongoClient: true } , (err, res) => {
 	if (err) {
 		return console.log(`Error connect to DB ${err} `)
 	}
