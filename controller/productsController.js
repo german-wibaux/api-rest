@@ -63,11 +63,11 @@ var getById = function (req, res) {
 
 //POST
 //endpoint: /products 
-var add = function (req, res) {
+var add = function (req, res) {	
 	//Add a new product
-	var product = new Product(req.body);
+	var product = new Product(req.body);	
 	product.save(function (err) {
-		//If some field of product is invalid returns error
+		//If some field of product is invalid returns error		
 		console.log(err);
 		if (err) {
 			res.status(412);

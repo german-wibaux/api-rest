@@ -12,7 +12,8 @@ const port = process.env.PORT || 3000
 //mongodb://<dbuser>:<dbpassword>@ds125623.mlab.com:25623/productsdb
 //var db = mongoose.connect("mongodb://localhost/ProductsDb");
 
-mongoose.createConnection('mongodb://localhost:27017/properties', (err, res) => {
+
+mongoose.connect('mongodb://localhost:27017/properties', (err, res) => {
 	if (err) {
 		return console.log(`Error connect to DB ${err} `)
 	}
@@ -32,7 +33,7 @@ app.use('/login', loginRouter);
 //app.use('/signup', signUpRouter);
 
 //Set token for products
-//app.use('/products',auth.auth, productsRouter);
+app.use('/products', productsRouter);
 
 
 
