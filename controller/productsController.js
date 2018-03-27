@@ -83,9 +83,11 @@ var add = function (req, res) {
 //PUT
 //endpoint: /products/{id}
 var update = function (req, res) {
+	
 	//Update at least one product's field
 	Product.findById(req.params.id, function (err, product) {
 		//Get a product by id, if it doesn't exist returns and error
+		
 		if (!err) {
 			//Avoids modifying product's id
 			if (req.body._id) {
