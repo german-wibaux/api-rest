@@ -6,21 +6,16 @@ var loginRouter = require('./routes/loginRouter')
 var signUpRouter = require('./routes/signUpRouter')
 var bodyParser = require('body-parser')
 var auth = require('./auth')
-const port = process.env.PORT || 3000
+const config = require('./config')
 
-//For connect to mlab.com usign mongodb and mongoose add the next line
-//mongodb://<dbuser>:<dbpassword>@ds125623.mlab.com:25623/productsdb
-//var db = mongoose.connect("mongodb://localhost/ProductsDb");
-
-
-mongoose.connect('mongodb://localhost:27017/properties', { useMongoClient: true } , (err, res) => {
+mongoose.connect(config.db , { useMongoClient: true } , (err, res) => {
 	if (err) {
 		return console.log(`Error connect to DB ${err} `)
 	}
 	console.log('Connection to DB stablished')
 
-	app.listen(port, () => {
-		console.log(`-->Server is running in port ${port}`)
+	app.listen(config.port, () => {
+		console.log(`-->Server is running in port ${config.port}`)
 	})
 })
 
